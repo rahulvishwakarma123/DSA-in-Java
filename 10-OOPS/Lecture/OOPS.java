@@ -1,63 +1,108 @@
-public class OOPS{
-    public static void main(String[] args) {
-        Student s1 = new Student();
-        s1.name = "Rahul";
-        s1.roll = 123;
-        s1.password = "abcd";
-        s1.marks[0] = 100;
-        s1.marks[1] = 90;
-        s1.marks[2] = 80;
+// OOPS.java
 
-        Student s2 = new Student(s1);
-            s1.marks[2] = 20;
-            s2.password = "xyz";
-            for (int i = 0; i < 3; i++) {
-                System.out.println(s2.marks[i]);
-                
-        }
-        
+// Class and Object
+class Person {
+    // Access Specifier
+    private String name;
+    private int age;
+
+    // Encapsulation: Getter and Setter
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    // Constructor
+    public Person() {
+        this.name = "Unknown";
+        this.age = 0;
+    }
+
+    // Parameterized Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method Overloading
+    public void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+
+    public void display(String message) {
+        System.out.println(message + " Name: " + name + ", Age: " + age);
     }
 }
 
+// Inheritance: Single Inheritance
+class Student extends Person {
+    private int studentId;
 
-class Student{
-    String name;
-    int roll;
-    String password;
-    int marks[];
-
-    //shallow copy constructor.
-    // Student (Student s1){
-    //     marks = new int[3];
-    //     this.name = s1.name;
-    //     this.roll = s1.roll;
-    //     this.marks = s1.marks;
-        
-    // }
-
-
-    //deep copy constructor.
-    Student (Student s1){
-        marks = new int[3];
-        this.name = s1.name;
-        this.roll = s1.roll;
-        for (int i = 0; i < marks.length; i++) {
-            this.marks[i] = s1.marks[i];
-        }
-        
+    public Student(String name, int age, int studentId) {
+        super(name, age); // Super Keyword
+        this.studentId = studentId;
     }
 
-    Student(){
-        marks = new int[3];
-        System.out.println("constructor is called...");
+    // Method Overriding
+    @Override
+    public void display() {
+        super.display();
+        System.out.println("Student ID: " + studentId);
     }
-    Student(String name){
-        marks = new int[3];
-        this.name = name;
+}
+
+// Interface
+interface Animal {
+    void sound();
+}
+
+// Implementing Interface
+class Dog implements Animal {
+    @Override
+    public void sound() {
+        System.out.println("Bark");
     }
-    Student(int roll){
-        marks = new int[3];
-        this.roll = roll;
+}
+
+// Static Keyword
+class StaticExample {
+    public static int staticCounter = 0;
+
+    public StaticExample() {
+        staticCounter++;
     }
 
+    public static void displayCounter() {
+        System.out.println("Static Counter: " + staticCounter);
+    }
+}
+
+// Main Class
+public class OOPS {
+    public static void main(String[] args) {
+        // Creating Objects
+        Person person1 = new Person("Alice", 30);
+        person1.display();
+
+        Student student1 = new Student("Bob", 20, 12345);
+        student1.display();
+
+        Dog dog = new Dog();
+        dog.sound();
+
+        StaticExample obj1 = new StaticExample();
+        StaticExample obj2 = new StaticExample();
+        StaticExample.displayCounter();
+    }
 }
