@@ -1,6 +1,6 @@
 public class ClassesAndObjects {
     public static void main(String args[]){
-        Pen p = new Pen();
+        Pen p = new Pen(); // created a pen object named p
         p.setColor("red");
         System.out.println(p.color);
         
