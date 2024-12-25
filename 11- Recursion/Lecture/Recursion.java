@@ -94,16 +94,34 @@ public static int optimizedPow(int number, int power) {
         return fOccurrence(arr, key, index + 1);
     }
 
+    // Function to find the last occurrence of the element.
     public static int lOccurrence(int arr[], int key, int index){
-        if(index == -1) return -1;
+        if(index < 0 ) return -1;
         if(arr[index] == key) return index;
 
-        return lOccurrence(arr, key, (arr.length - 1) - (index + 1));
-    }
+        int idx = lOccurrence(arr, key, index - 1);
+        return idx;
+    }   
+
+
+
+
 
     public static void main(String[] args) {        //main function
        
-        System.out.println(optimizedPow(2, 3)); // Example call to power function, should print 8
+        // Function calls
+        DeNumber(5);
+        InNumber(5);
+        System.out.println("Factorial of 5: " + factorial(5));
+        System.out.println("Sum of first 5 natural numbers: " + naturalSum(5));
+        System.out.println("5th Fibonacci number: " + fabonacci(5));
+        System.out.println("2 raised to the power 3: " + power(2, 3));
+        System.out.println("Optimized 2 raised to the power 3: " + optimizedPow(2, 3));
+        
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println("Array is sorted: " + isSorted(arr, 0));
+        System.out.println("First occurrence of 3: " + fOccurrence(arr, 3, 0));
+        System.out.println("Last occurrence of 3: " + lOccurrence(arr, 3, arr.length - 1));
         
         
     }
