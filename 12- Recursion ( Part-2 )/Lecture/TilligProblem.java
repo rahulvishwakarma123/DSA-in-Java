@@ -1,3 +1,4 @@
+package Lecture;
 public class TilligProblem{
     public static int tillingProblem(int n){
         //base case
@@ -15,9 +16,16 @@ public class TilligProblem{
         int way = fnm1 + fnm2;
         return way;
     }
-    public static void main(String[] args) {
+
+    public static int tillingProblem2(int floor){
+        if (floor == 0 || floor == 1) {
+            return 1;
+        }
+        return tillingProblem2(floor-1) + tillingProblem2(floor - 2);
+    }
     
-        System.out.println(tillingProblem(4));
+    public static void main(String[] args) {
+        System.out.println(tillingProblem2(4));
         
     }
 }
