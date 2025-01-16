@@ -1,4 +1,4 @@
-package Lecture;
+
 public class TilligProblem{
     public static int tillingProblem(int n){
         //base case
