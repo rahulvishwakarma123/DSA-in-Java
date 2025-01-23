@@ -19,6 +19,22 @@ public class FractionalKnapsack {
         Arrays.sort(ratio, Comparator.comparingDouble(o -> o[1]));
 
         int capacity = w;
+        int finalVal = 0;
+        for (int i = ratio.length-1; i >= 0; i--) {
+            int idx = (int)ratio[i][0];
+            if (capacity >= weights[idx]) { //include full item
+                finalVal += values[idx];
+                capacity -= weights[idx];
+            }
+            else{
+                //include fractional items.
+                finalVal += (ratio[i][1] * capacity);
+                capacity = 0;
+                break;
+            }
+        }
+        System.out.print("final value = " + finalVal);
+        
 
     }
 }
