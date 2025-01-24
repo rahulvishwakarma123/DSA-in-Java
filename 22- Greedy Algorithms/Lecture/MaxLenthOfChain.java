@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class MaxLenthOfChain {
-    public static void main(String[] args) {
+    public static void main(String[] args) {     //    O(nlogn)
         int pairs[][] = {{5,24},
                         {39,60},
                         {5,28},
