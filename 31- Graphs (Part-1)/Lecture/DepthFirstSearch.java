@@ -1,6 +1,10 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class BreadthFirstSearch {
+public class DepthFirstSearch {
+
+    // Blue print of the edge.
     static class Edge{
         int src;
         int dest;
@@ -12,23 +16,16 @@ public class BreadthFirstSearch {
         }    
     }
 
-    public static void bfs(ArrayList<Edge> graph[]){    // O(V+E)
-        Queue<Integer> q = new LinkedList<>();
-        boolean[] vis = new boolean[graph.length];
+    // Recursive function for the depth first search
+    public static void dfs(ArrayList<Edge>[] graph, int curr, boolean[] vis){
+        // visit the node
+        System.out.print(curr + " ");
+        vis[curr] = true;
 
-        q.add(0); // source = 0
-
-        while(!q.isEmpty()){
-            int curr = q.remove();
-
-            if (!vis[curr]) { // mark visited
-                System.out.print(curr + " ");
-                vis[curr] = true;
-                for (int i = 0; i < graph[curr].size(); i++) {
-                    Edge e = graph[curr].get(i);
-                    q.add(e.dest);
-                }
-
+        for (int i = 0; i < graph[curr].size(); i++) {
+            Edge e = graph[curr].get(i);
+            if (!vis[e.dest]) {
+                dfs(graph, e.dest, vis);
             }
         }
     }
@@ -63,6 +60,6 @@ public class BreadthFirstSearch {
         
         graph[6].add(new Edge(6, 5, 1));
 
-        bfs(graph);
+        dfs(graph, 0, new boolean[graph.length]);
     }
 }
