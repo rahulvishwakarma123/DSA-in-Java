@@ -17,7 +17,7 @@ public class DepthFirstSearch {
     }
 
     // Recursive function for the depth first search
-    public static void dfs(ArrayList<Edge>[] graph, int curr, boolean[] vis){
+    public static void dfs(ArrayList<Edge>[] graph, int curr, boolean[] vis){   // O(V+E)
         // visit the node
         System.out.print(curr + " ");
         vis[curr] = true;
