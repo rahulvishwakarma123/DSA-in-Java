@@ -28,8 +28,7 @@ public class HasPath {
             }
             return false;
         }
-
-
+        
         public static void main(String[] args) {
         ArrayList<Edge> graph[] = new ArrayList[7];
 
