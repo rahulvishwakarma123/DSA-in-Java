@@ -61,6 +61,7 @@ public class ConnectedComponents{
 
     public static void main(String[] args) {
         int vertex = 5;
+        @SuppressWarnings("unchecked")
         ArrayList<Edge>[] graph = new ArrayList[vertex];
 
         for (int i = 0; i < graph.length; i++) {
