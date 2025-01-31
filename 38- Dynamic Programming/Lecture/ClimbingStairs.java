@@ -1,8 +1,8 @@
 public class ClimbingStairs {
     public static void main(String[] args) {
         int n = 5;
-        int[] arr = new int[n+1];
-        System.out.println(countWays(n, arr));
+        int[] ways = new int[n+1];
+        System.out.println(countWays(n, ways));
     }
     public static int countWays(int n, int[] arr) {
         if (n == 1 || n == 0) {
