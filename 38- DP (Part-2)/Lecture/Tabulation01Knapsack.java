@@ -1,4 +1,4 @@
-public class TabulationKnapsack {
+public class Tabulation01Knapsack {
 
     public static int tabKnapasack(int[] val, int[] wt, int W, int[][] dp){
         int n = val.length;

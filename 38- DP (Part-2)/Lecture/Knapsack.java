@@ -4,7 +4,7 @@ public class Knapsack {
             return 0;
         }
 
-        if (wt[n-1] <= w) {
+        if (wt[n-1] <= w) { // valid 
             // Include
             int ans1 = val[n-1] + knapsack(val, wt, w - wt[n-1], n-1);
 
@@ -12,7 +12,7 @@ public class Knapsack {
             int ans2 = knapsack(val, wt, w, n-1);
             return Math.max(ans1, ans2);
         }
-        else{
+        else{   // Invalid
             return knapsack(val, wt, w, n-1);
         }
     }
