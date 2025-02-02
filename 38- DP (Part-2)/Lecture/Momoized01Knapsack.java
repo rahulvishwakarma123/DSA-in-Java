@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Momoized01Knapsack {
     public static int memoKnapsack(int[] val, int[] wt, int w, int n, int[][] dp){
         if (w == 0 || n == 0) {
@@ -9,7 +7,7 @@ public class Momoized01Knapsack {
             return dp[n][w];
         }
 
-        if (wt[n-1] <= w) {
+        if (wt[n-1] <= w) {     // Valid
             // Include
             int ans1 = val[n-1] + memoKnapsack(val, wt, w - wt[n-1], n-1, dp);
 
@@ -18,7 +16,7 @@ public class Momoized01Knapsack {
             dp[n][w] = Math.max(ans1, ans2);
             return dp[n][w];
         }
-        else{
+        else{   // Invalid
             dp[n][w] = memoKnapsack(val, wt, w, n-1, dp);
             return dp[n][w];
         }
@@ -36,5 +34,13 @@ public class Momoized01Knapsack {
         }
         int maxProfit = memoKnapsack(val, wt, w, n, dp);
         System.out.println("Maximum profit: " + maxProfit);
+
+        for (int i = 0; i < dp.length; i++) {
+            for (int j = 0; j < dp[0].length; j++) {
+                System.out.print(dp[i][j] + " ");
+            }
+            System.out.println();            
+        }
+        System.out.println();        
     }    
 }
