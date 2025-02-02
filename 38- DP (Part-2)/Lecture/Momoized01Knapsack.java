@@ -1,7 +1,7 @@
 import java.util.*;
 
-public class MomoizedKnapsack {
-    public static int memoKnapsack(int[] val, int[] wt, int w, int n, Integer[][] dp){
+public class Momoized01Knapsack {
+    public static int memoKnapsack(int[] val, int[] wt, int w, int n, int[][] dp){
         if (w == 0 || n == 0) {
             return 0;
         }
@@ -28,7 +28,7 @@ public class MomoizedKnapsack {
         int[] wt = {2,5,1,3,4};
         int w = 7;
         int n = val.length;
-        Integer[][] dp = new Integer[n+1][w+1];
+        int[][] dp = new int[n+1][w+1];
         for (int i = 0; i < dp.length; i++) {
             for (int j = 0; j < dp[0].length ; j++) {
                 dp[i][j] = -1;
