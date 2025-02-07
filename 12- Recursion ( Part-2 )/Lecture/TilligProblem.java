@@ -1,4 +1,3 @@
-
 public class TilligProblem{
     public static int tillingProblem(int n){
         //base case
@@ -8,7 +7,6 @@ public class TilligProblem{
         //kaam
         // vertical choice
         int fnm1 = tillingProblem(n - 1);
-
 
         // horizontal choice
         int fnm2 = tillingProblem(n - 2);
@@ -26,6 +24,5 @@ public class TilligProblem{
     
     public static void main(String[] args) {
         System.out.println(tillingProblem2(4));
-        
     }
 }
