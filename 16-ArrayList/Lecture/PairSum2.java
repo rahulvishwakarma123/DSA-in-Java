@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class PairSum2 {
+    // pair sum in sorted rotated ArrayList.
     public static void pairSum(ArrayList<Integer> al, int target){
         int n = al.size();
         int bp = 0;

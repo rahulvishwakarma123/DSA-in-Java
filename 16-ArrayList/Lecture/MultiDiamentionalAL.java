@@ -22,9 +22,6 @@ public class MultiDiamentionalAL {
 
         // System.out.println(mainList);
         
-
-
-
         ArrayList<Integer> list1 = new ArrayList<>();
         ArrayList<Integer> list2 = new ArrayList<>();
         ArrayList<Integer> list3 = new ArrayList<>();
