@@ -8,5 +8,6 @@ public class practice1{
         }else{
             System.out.println("Positive");
         }
+        sc.close();
     }
 }
