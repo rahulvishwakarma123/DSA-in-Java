@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class HeapsLesson {
 
@@ -23,6 +25,24 @@ public class HeapsLesson {
             }
             
         }
+    }
+    // leetcode 973
+    public static int[][] kClosest(int[][] arr, int k) {
+        int n = arr.length;
+        HashMap<Integer, int[]> hm = new HashMap<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for(int i = 0; i < n; i++){
+            int x = arr[i][0];
+            int y = arr[i][1];
+            int dist = (x*x) + (y*y);
+            hm.put(dist, arr[i]);
+            pq.add(dist);
+        }
+        int res[][] = new int[k][2];
+        for(int i = 0; i <= k; i++){
+            res[i] = hm.get(pq.remove());
+        }
+        return res;
     }
     public static void main(String[] args) {
         Heap hp = new Heap();
