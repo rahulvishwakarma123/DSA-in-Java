@@ -33,6 +33,26 @@ public class BreadthFirstSearch {
         }
     }
 
+    // finding path using bfs  
+    public static boolean findPath(ArrayList<Edge>[] graph, int source, int dest){
+        if(source == dest) return true;
+        Queue<Integer> q = new LinkedList<>();
+        HashMap<Integer, Boolean> hm = new HashMap<>();
+        q.add(source);
+        while(!q.isEmpty()){
+            int curr = q.remove();
+            if(!hm.containsKey(curr)){
+                hm.put(curr, true);
+                for (int i = 0; i < graph[curr].size(); i++) {
+                    Edge e = graph[curr].get(i);
+                    if(e.dest == dest) return true;
+                    q.add(e.dest);
+                }
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         ArrayList<Edge> graph[] = new ArrayList[7];
 
@@ -64,5 +84,8 @@ public class BreadthFirstSearch {
         graph[6].add(new Edge(6, 5, 1));
 
         bfs(graph);
+        boolean res = findPath(graph, 0, 6);
+        System.out.println(res);
+        
     }
 }
