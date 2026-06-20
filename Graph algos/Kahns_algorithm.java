@@ -25,7 +25,7 @@ public class Kahns_algorithm {
                 }
             }
 
-            Queue<Integer> q = new LinkedList<>();
+            Queue<Integer> q = new java.util.LinkedList<>();
             //step 2: adding the element to the queue with 0 indegree
             for (int i = 0; i < V; i++) {
                 if (indegree[i] == 0) {
